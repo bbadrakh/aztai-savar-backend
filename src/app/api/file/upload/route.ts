@@ -12,7 +12,6 @@ export async function POST(request: Request) {
   const file = formData.get("file") as File;
   const arrayBuffer = await file.arrayBuffer();
   const buffer = new Uint8Array(arrayBuffer);
-
   const results = await new Promise((resolve, reject) => {
     cloudinary.uploader
       .upload_stream(function (error, result) {
